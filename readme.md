@@ -2,9 +2,9 @@
 
 ## How to run the API Server
 
-1. Clone the repository with `get clone https://github.com/satyajit-patil/Nevernote.git`
+1. Clone the repository with `git clone https://github.com/satyajit-patil/Nevernote.git`
 
-2. `cd app`
+2. `cd Nevernote/app`
 
 3. Build a version of the docker container: 
 `docker build --tag nevernote:{VERSION} .`
@@ -132,8 +132,8 @@
 
 To run all the unit test cases, please do the following:
 
-1. `cd app`
-2. `go get ./...`
+1. `cd Nevernote/app`
+2. `go get ./...` (Add this to your GO Path if required)
 3. `go test`
 
 
