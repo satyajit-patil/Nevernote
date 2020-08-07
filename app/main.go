@@ -84,6 +84,7 @@ func deleteNotebook(w http.ResponseWriter, r *http.Request) {
 	}
 	delete(Notebooks, title)
 
+	// return list of notebook titles
 	notebookTitles := make([]string, 0, len(Notebooks))
 	for title := range Notebooks {
 		notebookTitles = append(notebookTitles, title)
@@ -112,7 +113,6 @@ func listNotes(w http.ResponseWriter, r *http.Request) {
 	Description: List all notes in a notebook that match tags in body
 	*/
 
-	// parse path variables and body
 	vars := mux.Vars(r)
 	title := vars["title"]
 
@@ -168,7 +168,6 @@ func createNote(w http.ResponseWriter, r *http.Request) {
 	Description: Create a note in a notebook
 	*/
 
-	// parse path variables and body
 	vars := mux.Vars(r)
 	title := vars["title"]
 
@@ -214,7 +213,6 @@ func updateNote(w http.ResponseWriter, r *http.Request) {
 	Description: Update a note (with a specific id) in a notebook
 	*/
 
-	// get path variables and body
 	vars := mux.Vars(r)
 	title := vars["title"]
 	noteId := vars["noteId"]
@@ -351,7 +349,7 @@ func returnError(out http.ResponseWriter, err string) {
 	}
 }
 
-func handleRequests() {
+func startServer() {
 	// creates a new instance of a mux router
 	myRouter := mux.NewRouter().StrictSlash(true)
 
@@ -383,9 +381,6 @@ func main() {
 	fmt.Println("Rest API - Nevernote")
 
 	Notebooks = make(map[string][]Note)
-	Notebooks["English"] = []Note{
-		Note{Id: "1", Title: "Hamlet", Body: "This is Hamlet", Tags: []string{"Classics", "Shakespeare"}, Created: "HamletCreated", LastModified: "HamletModified"},
-	}
 	idCounter = 0
-	handleRequests()
+	startServer()
 }
