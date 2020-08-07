@@ -2,7 +2,7 @@
 
 ## How to run the API Server
 
-1. Clone the application with ``
+1. Clone the repository with `get clone https://github.com/satyajit-patil/Nevernote.git`
 
 2. `cd app`
 
@@ -37,7 +37,7 @@
 ### Create a Notebook
 
 ```JSON
-    URL - *http://localhost:5000/createNotebook/{title}*
+    URL - *http://localhost:5000/createNotebook/{notebookTitle}*
     Method - POST
     Description - Creates a new notebook with a given title
 ```
@@ -53,7 +53,7 @@
 ### Number of Notes in Notebook
 
 ```JSON
-    URL - *http://localhost:5000/numberOfNotes/{title}*
+    URL - *http://localhost:5000/numberOfNotes/{notebookTitle}*
     Method - GET
     Description - Get the number of notes in a notebook
 ```
@@ -61,7 +61,7 @@
 ### List Notes in Notebook
 
 ```JSON
-    URL - *http://localhost:12345/listNotes/{title}*
+    URL - *http://localhost:12345/listNotes/{notebookTitle}*
     Method - GET
     Body - form-data
         {
@@ -73,7 +73,7 @@
 ### Create Note in Notebook
 
 ```JSON
-    URL - *http://localhost:5000/createNote/{title}*
+    URL - *http://localhost:5000/createNote/{notebookTitle}*
     Method - POST
     Body - form-data
         {
@@ -101,7 +101,7 @@
 ### Read a Note in a Notebook
 
 ```JSON
-    URL - *http://localhost:5000/readNote/{title}/{noteId}*
+    URL - *http://localhost:5000/readNote/{notebookTitle}/{noteId}*
     Method - GET
     Description - Get a note (based on id) from a notebook
 ```
@@ -109,14 +109,14 @@
 ### Delete a Note in a Notebook
 
 ```JSON
-    URL - *http://localhost:5000/deleteNote/{title}/{noteId}*
+    URL - *http://localhost:5000/deleteNote/{notebookTitle}/{noteId}*
     Method - DELETE
     Description - Delete a notes (with a specific id) in a notebook 
 ```
 
 ## Test Driven Development Description
 
-To run all the unit test cases, please do the following -
+To run all the unit test cases, please do the following:
 
 1. `cd app`
 2. `go get ./...`
